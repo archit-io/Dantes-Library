@@ -9,7 +9,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const reviewRoutes = require('./routes/reviews')
-const readinglistRoutes = require('./routes/readinglist')
+const readinglistRoutes = require('./routes/readingList')
 var cors = require('cors')
 
 app.use(cors())
