@@ -3,7 +3,7 @@ Add a personal collection of books to your online library. You can review the bo
 
 **Link to project:** https://dantesbooks.onrender.com/
 
-![alt tag](https://imgur.com/gallery/YHKtTja)
+![alt tag](https://ibb.co/JKtV7cX)
 
 ## How It's Made:
 
