@@ -1,0 +1,635 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100vh;
+    font-size: 105%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Navbar */
+
+nav {
+    background-color: #01579b;
+}
+
+nav li a {
+    font-weight: 600;
+}
+
+nav li a:hover {
+    font-size: 1em;
+    text-decoration: underline;
+}
+
+nav .container {
+    border: none;
+    width: 100vw;
+    margin-left: 2rem;
+    margin-right: 0;
+}
+
+.headerUser {
+    padding-right: 15px;
+    text-transform: capitalize;
+    color: rgb(177, 177, 177);
+}
+
+.headerReviews {
+    background-color: #a5011f;
+}
+
+.headerLogout {
+    background-color: #01579b;
+}
+
+.headerLogout a {
+    color: rgb(243, 243, 243);
+}
+
+.headerDash,
+.headerDash a {
+    background: #01579b;
+    color: rgb(243, 243, 243)
+}
+
+
+/* Sidebar */
+.sidenav {
+    background-color: rgb(255, 255, 255);
+    color: white
+}
+
+.sideDash {
+    background: #ffffff;
+    color: rgb(104, 102, 102)
+}
+
+.sideLogout {
+    background-color: #01579b;
+}
+
+.sidenav .sideLogout a {
+    color: white;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.not {
+    text-decoration: underline;
+}
+
+
+/*   Footer    */
+.footerHeader {
+    margin: 0;
+    margin-bottom: 1rem;
+    margin-left: 60vw;
+    font-size: 1rem;
+}
+
+.names {
+    font-size: 1.2em;
+}
+
+.names:hover {
+    text-decoration: underline;
+}
+
+
+/* Login */
+.formContainer {
+    height: auto;
+    width: 60vw;
+    padding: 4rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+@media all and (max-width: 800px) {
+    .formContainer {
+        width: 90vw;
+    }
+}
+
+.login-page,
+.signup-page {
+    height: 100vh;
+    background: #ffffff url("../images/login-background.jpg") no-repeat fixed center center;
+    background-size: cover;
+    opacity: 0.85;
+    color: #1a01a5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-form > input, 
+.login-form > label,
+.signup-form > input,
+.signup-form > label {
+    color: #01579b;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+::placeholder {
+    color: #01579b ;
+}
+
+.formSubmitButton{
+    background-color: #b5bdc4;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 4px;
+}
+
+.formSubmitButton:hover {
+    cursor: pointer;
+    background-color: #717e89;
+}
+
+.login-page h2,
+.signup-page h2 {
+    text-align: center;
+    color: #01579b;
+    margin-top: 0;
+}
+
+
+/* Review page */
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.bookThumbnailImage {
+    width: 50%;
+}
+
+
+/* Containers */
+
+.reviewCard {
+    background: linear-gradient(175deg, rgba(92, 161, 239, 0.607), white);
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px black;
+}
+
+.searchContainer,
+.bookContainer,
+.reviewCard {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 20px;
+    position: relative;
+}
+
+.readingListContainer .searchContainer, .readingListContainer .bookContainer{
+    display: none;
+}
+
+.searchContainer > *,
+.bookContainer > *,
+.reviewCard > * {
+    margin-top: .5rem;
+}
+
+.cardHeader {
+    font-size: 2rem;
+}
+
+.subHeader {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.bookTitle {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#bookSearch {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#bookSearch:focus {
+    outline: none;
+}
+
+.starContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookDesc {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-top: 1rem;
+}
+
+.rate {
+    width: fit-content;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: rgb(94, 94, 94);
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked~label,
+.rating {
+    color: #ffc700;
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover~label {
+    color: #deb217;
+}
+
+.rate > input:checked+label:hover,
+.rate > input:checked+label:hover~label,
+.rate > input:checked~label:hover,
+.rate > input:checked~label:hover~label,
+.rate > label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+.star {
+    color: #ffc700;
+    font-size: 35px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.column {
+    flex-direction: column;
+}
+
+#review {
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    background-color: transparent;
+    border: 2px solid black;
+    width: 80%;
+    height: 150px;
+}
+
+#review:focus {
+    outline: none;
+}
+
+#review::placeholder,
+#bookSearch::placeholder {
+    color: rgb(138, 138, 138)
+}
+
+
+/* Index Page*/
+
+.informationContainer {
+    width: 90%;
+    margin: 1rem auto 0 auto;
+}
+
+.profileReviewCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.informationContainer > ul > * {
+    margin: 0 1rem;
+}
+
+.profileCard {
+    padding: 20px;
+    width: 100%;
+}
+
+.logo {
+    padding-top: 5rem;
+    width: 250px;
+}
+
+.name {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 2rem;
+    margin: 0 1rem;
+    font-size: 40px;
+}
+
+.indexBackground {
+    height: 100vh;
+    background: url("../images/books.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.heroHeading {
+    width: 50%;
+}
+
+.heroHeading h1 {
+    color: #3749a0;
+    font-size: 5rem;
+    line-height: 8rem;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding-top: 10%;
+}
+
+@media all and (max-width: 1100px) {
+    .heroHeading h1 {
+        font-size: 3rem;
+        line-height: 6rem;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .heroHeading h1 {
+        font-size: 2.5rem;
+        line-height: 5rem;
+        margin-left: 1rem;
+    }
+}
+
+
+.menu {
+    font-family: sans-serif;
+    text-align: center;
+    color: red;
+}
+
+.button {
+    margin: 1rem;
+    text-decoration: none;
+    padding: 15px 35px;
+    border: unset;
+    border-radius: 15px;
+    color: #070707;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 600;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.30);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.50);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #01579b;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms;
+}
+
+.button:hover {
+    color: #fafafa;
+    cursor: pointer;
+}
+
+.button:hover::before {
+    width: 100%;
+}
+
+.buttonSmall {
+    padding: 8px 10px;
+}
+
+
+/* Reviews */
+.reviewsPage {
+    background: url("../images/seats.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    background-color: rgb(0 0 0 / 49%);
+    background-blend-mode: multiply;
+    padding-bottom: 20px;
+}
+
+.reviewsPage h1 {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.reviewsTitle {
+    font-size: 40px;
+    color: #FFF
+}
+
+.mainReview {
+    text-align: center;
+}
+
+.buttonReviews {
+    margin: 2rem;
+    text-decoration: none;
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #070707;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.30);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.50);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.buttonReviews::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.buttonReviews:hover {
+    color: #fafafa;
+}
+
+.buttonReviews:hover::before {
+    width: 100%;
+}
+
+
+/* Signup */
+.signup {
+    margin: 2rem;
+    text-align: center;
+}
+
+
+/* New Review Page */
+.buttonPostReview {
+    margin: 2rem;
+    text-decoration: none;
+    padding: 15px 25px;
+    border: unset;
+    border-radius: 15px;
+    color: #070707;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.30);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.50);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.buttonPostReview::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.buttonPostReview:hover {
+    color: #fafafa;
+}
+
+.buttonPostReview:hover::before {
+    width: 100%;
+}
+
+
+/* All reviews Page */
+.allReviews {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Edit */
+.edit {
+    color: #fff;
+    float: right;
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    font-size: 1.5rem;
+}
+
+.title {
+    color: #FFF;
+    text-align: center;
+}
+
+#update {
+    padding: 0
+}
+
+.readinglistHeader {
+    color: #fff
+}
+
+@media (max-width: 1520px) {
+    .profileReviewCard {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+    }
+    .informationContainer > ul > * {
+        margin: 0 0;
+    }
+}
+
+@media (max-width: 1120px) {
+    .profileReviewCard {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .profileReviewCard {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1rem;
+    }
+}
