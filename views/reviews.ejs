@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+    <section class="reviewsPage">
+        <section class="mainReview">
+            <h1 class="reviewsTitle headerUser">
+                <%= user.userName%>'s Reviews</h1>
+            <a href="/reviews/newReview"><button class="button">Add a review</button></a>
+            <div class="informationContainer">
+                <ul class="profileReviewCard">
+                    <% reviews.forEach( el => { %>
+                        <li class='reviewCard profileCard flex column' data-id='<%=el._id%>'>
+                            <h1 class='bookTitle cardHeader'>
+                                <%= el.book %>
+                            </h1>
+                            <% if(el.userId === user.id){ %>
+                                <a href="/reviews/editReview/<%= el.id%>" class="fas fa-edit fa-small edit"></a>
+                            <%} %>
+
+                            <img src="<%= el.thumbnailImage %>" class='bookThumbnailImage' />
+                            <% if(el.rating===1) { %>
+                                <div class="star">★</div>
+                                <% } else if (el.rating===2){ %>
+                                    <div class="star">★★</div>
+                                    <% } else if (el.rating===3){ %>
+                                        <div class="star">★★★</div>
+                                        <% } else if (el.rating===4){ %>
+                                            <div class="star">★★★★</div>
+                                            <% } else if (el.rating===5){ %>
+                                                <div class="star">★★★★★</div>
+                                                <% } %>
+                                                    <p class='bookDesc'><strong>Review:</strong><br>
+                                                        <%= el.review %>
+                                                    </p>
+                                                    <button class='del button buttonSmall'>Delete</button>
+                        </li>
+                        <% }) %>
+                </ul>
+            </div>
+        </section>
+    </section>
+    <%- include("partials/footer.ejs") %>
