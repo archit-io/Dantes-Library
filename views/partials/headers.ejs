@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <title>Dante's Library</title>
+</head>
+
+<body>
+    <div class="navbar-fixed" >
+        <nav class="nav-wrapper" >
+            <div class="container">
+                <a href="/" class="brand-logo">Dante's Library</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <% if(!user){%>
+                        <li class="headerLogin"><a href="/login">Log in</a></li>
+                        <li class="headerSignup"><a href="/signup">Sign Up</a></li>
+                        <%  }else{ %>
+                            <li class="headerUser">Welcome,
+                                <%= user.userName %>
+                            </li>
+                            <li class="headerDash"><a href="/reviews">My Reviews</a></li>
+                            <li class="headerDash"><a href="/reviews/allReviews">All Reviews</a></li>
+                            <li class="headerDash"><a href="/readinglist">My Reading List</a></li>
+                            <li class="headerLogout"><a href="/logout">Logout</a></li>
+                            <%  } %>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-links">
+        <% if(!user) {%>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            <%} else {%>
+                <li class="headerUser">Welcome,
+                    <%= user.userName %>
+                </li>
+                <li class="sideDash"><a href="/reviews">My Reviews</a></li>
+                <li class="sideDash"><a href="/reviews/allReviews">All Reviews</a></li>
+                <li class="sideDash"><a href="/readinglist">My Reading List</a></li>
+                <li class="sideLogout"><a href="/logout">Logout</a></li>
+                <% } %>
+
+
+
+    </ul>
