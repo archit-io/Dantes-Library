@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+
+    <main class="reviewsPage readingListContainer">
+        <section class="mainReview">
+            <h1 class="readinglistHeader">My Reading List</h1>
+
+            <div class="container reviewCard">
+                <div class="searchContainer">
+                    <h2 class="cardHeader">Search:</h2>
+                    <input type="text" id="bookSearch" name="bookSearch" placeholder="Search here"/>
+                    <button class="searchBook button buttonSmall">Find My Book</button>
+                    <button class="buttonSmall button" id="submitToList">Add to List</button>
+                </div>
+                <div class="bookContainer"> 
+                    <h3 class="cardHeader">Book Title: <span class="bookTitle"></span></h3>
+                    <img src="" alt="" class="bookThumbnailImage">
+                    <div>
+                        <h3 class="subHeader">Description:</h3>
+                        <p class="bookDesc"></p>
+                    </div>
+                </div>
+
+                <section class="informationContainer">
+                    <ul class="profileReviewCard">
+                        <% readinglist.forEach( el => { %>
+                        <li class='reviewCard profileCard flex column' data-id='<%=el._id%>'>
+                            <h1 class='bookTitle cardHeader <%= el.completed === true ? 'completed' : 'not'%>'><%= el.book %></h1>
+                            <img class='bookThumbnailImage' src="<%= el.thumbnailImage %>"/>
+                            <span><a class="buttonSmall" href="/reviews/newReview">Write a Review</a></span>
+                            <button class='button delete buttonSmall'>Remove</button>
+                        </li>
+                    <% }) %>    
+                    </ul>
+                </section>
+                
+            </div>
+        </section>
+    </main>
+    <script src="/js/readinglist.js"></script>
+    <%- include("partials/footer.ejs") %>
+
